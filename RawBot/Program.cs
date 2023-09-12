@@ -54,6 +54,10 @@ namespace RawBot
                 {
                     Console.Clear();
                 }
+                else if (input == "server")
+                {
+                    Console.WriteLine($"{server.Name}, {server.Ip}, {server.Port}, {context.World.CurrentMap}");
+                }
                 else if (input == "players")
                 {
                     foreach (var player in context.World.Players.Items)
