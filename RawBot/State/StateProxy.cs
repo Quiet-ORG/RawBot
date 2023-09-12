@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RawBot.State
 {
-    public class StateProxy<T> : DispatchProxy
+    public class StateProxy<T> : DispatchProxy, IDisposable
     {
         private readonly Dictionary<int, EventWaitHandle> _waitHandles = new();
         private readonly Dictionary<string, PropertyInfo> _properties = new();
@@ -54,6 +54,14 @@ namespace RawBot.State
             }
 
             return result;
+        }
+
+        public void Dispose()
+        {
+            foreach (var handle in _waitHandles.Values)
+            {
+                handle.Close();
+            }
         }
     }
 

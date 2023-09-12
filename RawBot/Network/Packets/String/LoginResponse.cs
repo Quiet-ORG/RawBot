@@ -9,7 +9,7 @@ namespace RawBot.Network.Packets.String
         public override async Task HandleAsync(Game game)
         {
             await game.World.SendXtAsync("firstJoin", "1");
-            await game.World.SendXtAsync("cmd", "ignoreList", "$clearAll");
+            await game.World.SendXtAsync("cmd", "1", "ignoreList", "$clearAll");
         }
     }
 }

@@ -17,8 +17,8 @@ namespace RawBot.Authentication
         public Authenticator(string url, string userAgent)
         {
             _url = url;
-            _http.DefaultRequestHeaders.Add("artixmode", "launcher");
             _http.DefaultRequestHeaders.Add("User-Agent", userAgent);
+            _http.DefaultRequestHeaders.Add("artixmode", "launcher");
         }
 
         public async Task<LoginResponse> LoginAsync(string username, string password)

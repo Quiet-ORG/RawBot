@@ -2,6 +2,7 @@
 using RawBot.Configuration;
 using RawBot.Logging;
 using RawBot.Runtime;
+using RawBot.State;
 using RawBot.State.Model.Entities;
 using Sharprompt;
 using System;

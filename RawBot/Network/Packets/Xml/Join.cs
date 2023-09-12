@@ -1,5 +1,6 @@
 ﻿using RawBot.State;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 
@@ -11,7 +12,7 @@ namespace RawBot.Network.Packets.Xml
         public override Task HandleAsync(Game game)
         {
             game.World.RoomId = Payload.RoomId;
-            
+
             game.World.UserIds.Clear();
             foreach (var user in Payload.UserData.Users)
             {

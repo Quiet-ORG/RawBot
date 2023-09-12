@@ -56,8 +56,8 @@ namespace RawBot.State.Model.Entities
         public override string TargetString => $"p:{Id}";
         public override int TargetId => Id;
     }
-
-    public interface IPlayer : IEntityBase
+    
+    public interface IPlayer : IEntityBase, IState
     {
         int Id { get; set; }
         string Username { get; set; }

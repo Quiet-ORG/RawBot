@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 
 namespace RawBot.Network.Packets.Json
 {
+    [Action("loadShop")]
     public class LoadShop : JsonPacket
     {
         public override Task HandleAsync(Game game)

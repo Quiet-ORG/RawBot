@@ -22,7 +22,6 @@ namespace RawBot.State.Model.Map
         [JsonProperty("sExtra")]
         public string Extra { get; set; }
     }
-
     public interface IMapData : IState
     {
         string Name { get; set; }
