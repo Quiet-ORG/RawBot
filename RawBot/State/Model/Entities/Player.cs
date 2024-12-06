@@ -1,11 +1,16 @@
 ﻿using Newtonsoft.Json;
+using RawBot.Network;
+using RawBot.Runtime;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 
 namespace RawBot.State.Model.Entities
 {
     public class Player : EntityBase, IPlayer
     {
         public const int LevelCap = 100;
+
+        private Game game => new Game();
 
         [JsonProperty("entID")]
         public int Id { get; set; }

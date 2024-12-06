@@ -162,7 +162,7 @@ namespace RawBot.State
             await ExitCombatAsync();
         }
 
-        public Task ExitCombatAsync()
+        public static Task ExitCombatAsync()
         {
             return Task.CompletedTask;
         }

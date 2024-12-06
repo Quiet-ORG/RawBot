@@ -13,6 +13,9 @@ namespace RawBot.State
 
         public string Username { get; set; }
         public string Token { get; set; }
+
+        public string ClientVersion { get; }
+
         public Options Options { get; } = new();
         public World World { get; private set; }
         public ILogger Log { get; set; } = new TextWriterLogger { Writer = Console.Out };

@@ -29,6 +29,9 @@ namespace RawBot.Network.Packets.Xml
         [XmlAttribute("r")]
         public int RoomId { get; set; }
 
+        [XmlAttribute("pid")]
+        public int Id { get; set; }
+
         [XmlElement("uLs")]
         public UserData UserData { get; set; }
     }
@@ -46,6 +49,12 @@ namespace RawBot.Network.Packets.Xml
 
         [XmlAttribute("i")]
         public int Id { get; set; }
+
+        [XmlAttribute("m")]
+        public int num1 { get; set; }
+
+        [XmlAttribute("s")]
+        public int num2 { get; set; }
 
         [XmlAttribute("p")]
         public int Index { get; set; }

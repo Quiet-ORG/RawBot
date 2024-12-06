@@ -9,6 +9,7 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace RawBot
 {
@@ -16,9 +17,12 @@ namespace RawBot
     {
         public const string PluginsFile = "plugins.txt";
         public const string ExitString = ".exit";
-
         public static async Task Main(string[] args)
         {
+            if (args is null)
+            {
+                Console.WriteLine("Main args is null");
+            }
 
             var config = ConfigurationLoader.Load();
             var auth = new Authenticator(config.LoginUrl, config.UserAgent);
@@ -63,8 +67,17 @@ namespace RawBot
                 {
                     foreach (var player in context.World.Players.Items)
                     {
+                        if (player == null)
+                        {
+                            throw new Exception("no players");
+                        }
                         Console.WriteLine($"{player.Username} ({player.Id}, {player.Frame})");
                     }
+                }
+                else if (input == "goto")
+                {
+                    var playerName = Prompt.Input<string>("Player Name");
+                    await context.Game.Client.SendAsync($"%xt%zm%cmd%1%goto%{playerName}%");
                 }
                 else if (input == "monsters")
                 {
@@ -94,7 +107,7 @@ namespace RawBot
                 }
                 else if (input == "currentmap")
                 {
-                    Console.WriteLine($"{context.World.CurrentMap.AreaName} ({context.World.Player.Frame}, {context.World.Player.Pad})");
+                    Console.WriteLine($"{context.World.CurrentMap.Name} ({context.World.Player.Frame}, {context.World.Player.Pad})");
                 }
                 else if (input == "jump")
                 {
